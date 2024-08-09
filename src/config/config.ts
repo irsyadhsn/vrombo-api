@@ -16,10 +16,18 @@ const MYSQL = {
 
 const APP_HOSTNAME = process.env.APP_HOSTNAME
 const APP_PORT = process.env.APP_PORT
+const APP_TOKEN_EXPIRETIME = process.env.APP_TOKEN_EXPIRETIME || 7200
+const APP_TOKEN_ISSUER = process.env.APP_TOKEN_ISSUER || "vromboissuer"
+const APP_TOKEN_SECRET = process.env.APP_TOKEN_SECRET || "vrombosecret"
 
 const SERVER = {
 	hostname: APP_HOSTNAME,
 	port: APP_PORT,
+	token: {
+		expireTime: APP_TOKEN_EXPIRETIME,
+		issuer: APP_TOKEN_ISSUER,
+		secret: APP_TOKEN_SECRET,
+	},
 }
 
 const config = {

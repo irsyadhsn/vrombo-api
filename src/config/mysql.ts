@@ -22,16 +22,16 @@ const Connect = async () =>
 		})
 	})
 
-const Query = async (connection: mysql.Connection, query: string) =>
-	new Promise((resolve, reject) => {
+const Query = async <T>(connection: mysql.Connection, query: string) =>
+	new Promise<T>((resolve, reject) => {
 		connection.query(query, connection, (error, result) => {
 			if (error) {
 				reject(error)
 				return
 			}
+			resolve(result as T)
 
-			resolve(result)
+			connection.end()
 		})
 	})
-
 export { Connect, Query }

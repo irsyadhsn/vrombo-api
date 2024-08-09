@@ -5,6 +5,7 @@ import logging from "./config/logging"
 import config from "./config/config"
 import courseRoutes from "./routes/course.routes"
 import traineeRoutes from "./routes/trainee.routes"
+import adminRoutes from "./routes/masteradmin.routes"
 
 const NAMESPACE = "Server"
 const router = express()
@@ -51,6 +52,7 @@ router.use((req, res, next) => {
 /** Routes  */
 router.use("/course", courseRoutes)
 router.use("/trainee", traineeRoutes)
+router.use("/admin", adminRoutes)
 
 /** Error handling */
 router.use((req, res, next) => {
